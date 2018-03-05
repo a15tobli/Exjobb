@@ -1,0 +1,40 @@
+/*Styling for the application*/
+body{
+    background-color: #388E3C;
+    margin: 0;
+}
+
+#content{
+    background-color: white;
+}
+.glyphicon-menu-hamburger {
+  font-size: npx;
+}
+a{
+    color: white;
+}
+span{
+    background-color: white;
+}
+.collapse.width {
+    height: auto;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    transition: width 0.35s ease;
+}
+#content{
+    margin: auto;
+    height: 80vh;
+}
+
+.nav-item { display: inline-block; }
+.navbar-nav {
+  flex-flow: row nowrap;
+    white-space: nowrap;
+}
+
+.navbar {
+    flex-flow: row nowrap;
+    display: inline-flex;
+}
