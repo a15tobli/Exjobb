@@ -1,17 +1,19 @@
 //Displays content based on link clicked
 function setContent(clickedLink) {
+    $("a").removeClass("active");
+    
     switch(clickedLink){
         case "Home":
-            alert("Show home page");
+            $("#homeLink").addClass("active");
             break;
         case "AnswerTest":
-            alert("Show tests");
+            $("#answerLink").addClass("active");
             break;
         case "AddTest":
-            alert("Add tests")
+            $("#addLink").addClass("active");
             break;
         case "ViewResult":
-            alert("View result");
+            $("#resultLink").addClass("active");
             break;
         default: 
             break;
