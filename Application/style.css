@@ -1,0 +1,68 @@
+/*Styling for the application*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+}
+body{
+    /*#388E3C*/
+    height: 100vh;
+    background: #374046;
+}
+
+/* Navigation styling */
+#navContent{
+    position: absolute;
+    z-index: 100;
+    -webkit-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    top: 50px;
+}
+
+li a{color: white;}
+
+/* Page content */
+#titleBar{
+    background: #388E3C;
+    display: block;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    z-index: 3;
+    height: 6%;
+}
+#content{
+    margin: auto;
+    height: 85vh;
+    z-index: 1;
+}
+#content1{
+    margin-top: 0;
+    width: 100%;
+    height: 64%;
+    background-color: #4CAF50;
+    z-index: 3;
+    position: absolute;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    
+}
+#content2{
+    bottom: 0;
+    width: 100%;
+    background: white;
+    height: 30%;
+    z-index: 2;
+    position: absolute;
+        border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+}
+h1{
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
