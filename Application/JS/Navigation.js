@@ -23,12 +23,8 @@ function setContent(clickedLink) {
         case "ViewResult":
             $("#resultLink").addClass("active");
             document.getElementById("title").innerHTML="View test results";
-            break;
-        default: 
-            break;
     }
 }
-
 function preview_image(event, id) 
 {
     var reader = new FileReader();
