@@ -37,11 +37,13 @@ h2{
 }
 
 /* --- Page content --- */
+/* Container for page content */
 #content{
     margin: auto;
     height: 85vh;
     z-index: 1;
 }
+/* First content container */
 #content1{
     margin-top: 0;
     width: 100%;
@@ -50,8 +52,8 @@ h2{
     z-index: 3;
     position: absolute;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    
 }
+/* Second content container */
 #content2{
     bottom: 0;
     width: 100%;
@@ -64,9 +66,10 @@ h2{
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
 }
-.splitTest{
-    display: none;
-}
+
+/* --- View tests --- */
+.splittestContent{display: none;}
+
 /* Containers for images */
 .imageContainer{
     background: #388E3C;
@@ -76,6 +79,21 @@ h2{
     z-index: 3;
     margin: auto;
 }
+#img1, #img2{
+    max-width: 400px;
+}
 
+/*Add test*/
+.formContent{display: none;}
+
+.previewImage
+{
+    max-width:200px;
+    background: white;
+    height: 200px;
+}
+.addedMargin{
+    margin-top: 50px;
+}
 
 
