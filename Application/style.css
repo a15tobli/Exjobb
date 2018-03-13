@@ -29,10 +29,17 @@ li a{color: white;}
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     z-index: 3;
-    height: 10%;
+    height: 8%;
+}
+#titleSpan{
+    width: 100%;
+    height: 100%;
+    display: table;
 }
 h2{
     color: white;
+    display: table-cell;
+    vertical-align: middle;
     text-align: center;
 }
 
@@ -47,11 +54,10 @@ h2{
 #content1{
     margin-top: 0;
     width: 100%;
-    height: 64%;
+    height: 62%;
     background-color: #4CAF50;
     z-index: 3;
     position: absolute;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 /* Second content container */
 #content2{
@@ -63,8 +69,6 @@ h2{
     position: absolute;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
 }
 
 /* --- View tests --- */
@@ -75,7 +79,7 @@ h2{
     background: #388E3C;
     height: 70%;
     vertical-align: middle;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align: center;
     z-index: 3;
     margin: auto;
 }
@@ -83,15 +87,57 @@ h2{
     max-width: 400px;
 }
 
-/*Add test*/
+/*Add images*/
 .formContent{display: none;}
-
+#formDiv{
+    background: #388E3C;
+    height: 150%;
+    vertical-align: middle;
+    text-align: center;
+    z-index: 4;
+    margin: auto;
+    border-radius: 4px;
+}
+#formDiv table{
+    width: 100%;
+    color: white;
+    text-align: center;
+    display: table;
+}
+#formDiv td{
+    width: 33%;
+}
 .previewImage
 {
-    max-width:200px;
     background: white;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+    background: white;
+    border: 1px solid black;
+    display: inline-block;
+}
+#sendBtn{
+    background: #FF4081;
+    color: white;
+    z-index: 3;
+    bottom: 20px;
 }
 .addedMargin{
     margin-top: 50px;
+}
+
+.shadow1{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.shadow2{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.shadow3{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.shadow4{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.shadow5{
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }

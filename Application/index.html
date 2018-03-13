@@ -40,48 +40,80 @@
         <div class="container-fluid">
             <div class="col-1"></div>
             <div class="col-10" id="content">
-                <div class="row" id="titleBar"><h2 id="title">Home</h2></div>
+                <div class="row" id="titleBar"><span id="titleSpan"><h2 id="title">Home</h2></span></div>
 
                 <!--Main content, dynamic visibility-->
-                <div class="row" id="content1">
+                <div class="row shadow2" id="content1">
 
                     <!--Design choice/Split-test-->
-                    <div class="col-12 splittestContent">
-                        <div class="row addedMargin">
-                            <div class="col-5 imageContainer"><img src="Imagetest/img1.PNG" alt="Design1" id="img1"/></div>
+                    <div class="col-12 splittestContent addedMargin">
+                        <div class="row">
+                            <div class="col-5 imageContainer shadow2"><img src="Imagetest/img1.PNG" alt="Design1" id="img1"/></div>
                             <div class="col-2"></div>
-                            <div class="col-5 imageContainer"><img src="Imagetest/img2.PNG" alt="Design2" id="img2"/></div>
+                            <div class="col-5 imageContainer shadow2"><img src="Imagetest/img2.PNG" alt="Design2" id="img2"/></div>
                         </div>
                     </div>
 
                     <!--Imageform-->
-                    <div class="col-12 formContent">
-                        <form method="POST" action="postImage.php" enctype="multipart/form-data" class="sendForm">
-                            <div class="row addedMargin">
-                                <div class="col-5 imageContainer">
-                                    <img id="output_image1" class="previewImage"/>
-                                    <input class="btn" type="file" accept="image/*" name="image1" onchange="preview_image(event, 1);">
-                                </div>
-                                <div class="col-2"></div>
-                                <div class="col-5 imageContainer">
-                                    <img id="output_image2" class="previewImage"/>
-                                    <input class="btn" type="file" accept="image/*" name="image2" onchange="preview_image(event, 2);">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5"></div>
-                                <div class="col-2"><input class="btn btn-success bottom" type="submit" name="submit_images" value="Upload"></div>
-                                <div class="col-5"></div>       
-                            </div>
-                        </form>
+                    <div class="col-12 formContent addedMargin">
+                        <div class="col-1"></div>
+                        <div class="col-8 shadow5" id="formDiv">
+                            <form method="POST" action="postImage.php" enctype="multipart/form-data" class="sendForm">
+                                <table>
+                                    <thead>
+                                        <tr><th colspan="3">Add a new split test</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><img id="output_image1" class="previewImage"/></td>
+                                            <td></td>
+                                            <td><img id="output_image2" class="previewImage"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="btn formBtn" type="file" accept="image/*" name="image1" onchange="preview_image(event, 1);"></td>
+                                            <td></td>
+                                            <td><input class="btn formBtn" type="file" accept="image/*" name="image2" onchange="preview_image(event, 2);"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit_images" value="Upload"></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+                                <!--<div class="row addedMargin">
+<div class="col-5 imageContainer shadow2">
+<img id="output_image1" class="previewImage"/>
+<input class="btn" type="file" accept="image/*" name="image1" onchange="preview_image(event, 1);">
+</div>
+<div class="col-2"></div>
+<div class="col-5 imageContainer shadow2">
+<img id="output_image2" class="previewImage"/>
+<input class="btn" type="file" accept="image/*" name="image2" onchange="preview_image(event, 2);">
+</div>
+</div>
+<div class="row">
+<div class="col-5"></div>
+<div class="col-2 text-center"><input class="btn bottom shadow2" id="sendBtn" type="submit" name="submit_images" value="Upload"></div>
+<div class="col-5"></div>       
+</div>-->
+                            </form>
+                        </div>
                     </div>
-                    
+
                     <!--Add more content here-->
 
                 </div>
 
                 <!--Supplementing content-->
-                <div class="row" id="content2">
+                <div class="row shadow1" id="content2">
                 </div>
             </div>
             <div class="col-1"></div>
