@@ -45,7 +45,10 @@
                 <!--Main content, dynamic visibility-->
                 <div class="row shadow2" id="content1">
 
-                    <!--Design choice/Split-test-->
+                    <!--Index page (default view)-->
+                    
+                    
+                    <!--Design choice/Split-test (answer test)-->
                     <div class="col-12 splittestContent addedMargin">
                         <div class="row">
                             <div class="col-5 imageContainer shadow2"><img src="Imagetest/img1.PNG" alt="Design1" id="img1"/></div>
@@ -54,11 +57,10 @@
                         </div>
                     </div>
 
-                    <!--Imageform-->
+                    <!--Imageform (add new tests)-->
                     <div class="col-12 formContent addedMargin">
-                        <div class="col-1"></div>
-                        <div class="col-8 shadow5" id="formDiv">
-                            <form method="POST" action="postImage.php" enctype="multipart/form-data" class="sendForm">
+                        <div class="col-6 shadow5" id="formDiv">
+                            <form method="POST" action="insertImages.php" enctype="multipart/form-data" class="sendForm">
                                 <table>
                                     <thead>
                                         <tr><th colspan="3">Add a new split test</th></tr>
@@ -87,23 +89,6 @@
                                     </tbody>
 
                                 </table>
-
-                                <!--<div class="row addedMargin">
-<div class="col-5 imageContainer shadow2">
-<img id="output_image1" class="previewImage"/>
-<input class="btn" type="file" accept="image/*" name="image1" onchange="preview_image(event, 1);">
-</div>
-<div class="col-2"></div>
-<div class="col-5 imageContainer shadow2">
-<img id="output_image2" class="previewImage"/>
-<input class="btn" type="file" accept="image/*" name="image2" onchange="preview_image(event, 2);">
-</div>
-</div>
-<div class="row">
-<div class="col-5"></div>
-<div class="col-2 text-center"><input class="btn bottom shadow2" id="sendBtn" type="submit" name="submit_images" value="Upload"></div>
-<div class="col-5"></div>       
-</div>-->
                             </form>
                         </div>
                     </div>
