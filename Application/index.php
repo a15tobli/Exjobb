@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+        <!--External scripts-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="./JS/Navigation.js"></script>
+
         <link rel="stylesheet" type="text/css" href="style.css">
 
         <title>Design application</title>
@@ -13,13 +19,27 @@
 
     </head>
     <body>
+        <?php 
+        //Add test
+        if(isset($_POST['submit-test'])){
+            include_once "insertImages.php";
+            Insert::submitForm();
+        }
+
+        //Search for test
+        if(isset($_POST['searchTests'])){
+            include_once "viewData.php";
+            $testID = Retrieve::getTestID($_GET['searchField']);
+            //Retrieve::getImage($testID);
+        }
+        ?>
 
         <!--Navigation menu-->
         <nav class="navbar navbar-toggleable-md navbar-dark">
             <button class="navbar-toggler btn btn-basic" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation" id="hamburgerBtn">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!--Collapsed content-->
+            <!--Collapsed navbar-->
             <div class="collapse navbar-collapse"  id="navContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -48,23 +68,43 @@
                 <!--Main page content, dynamic visibility-->
                 <div class="row shadow2" id="content1">
 
+
                     <!--Index page (default view)
-                        ---Add code here---
-                    -->
+---Add index here---
+-->
+
 
                     <!--Design choice/Split-test (answer test)-->
                     <div class="col-12 splittestContent addedMargin">
+                        <!-- Search form -->
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <form action="" method="GET">
+                                    <div class="input-group">
+                                        <input placeholder="Enter test name or ID" name="searchField"/>
+                                        <span class="input-group-btn">
+                                            <input class="btn btn-primary" type="submit" name="searchTests" value="Search"/>
+                                        </span>                     
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+
+                        <!--Test output-->
                         <div class="row">
                             <div class="col-5 imageContainer shadow2"><img src="viewData.php" alt="Design1" id="img1"/></div>
                             <div class="col-2"></div>
-                            <div class="col-5 imageContainer shadow2"><img src="Imagetest/img2.PNG" alt="Design2" id="img2"/></div>
+                            <div class="col-5 imageContainer shadow2"><img src="viewData.php" alt="Design2" id="img2"/></div>
                         </div>
                     </div>
+
 
                     <!--Imageform (add new tests)-->
                     <div class="col-12 formContent addedMargin">
                         <div class="col-10 shadow5" id="formDiv">
-                            <form method="POST" action="insertImages.php" enctype="multipart/form-data" class="sendForm">
+                            <form method="POST" action="index.php" enctype="multipart/form-data" class="sendForm">
                                 <table>
                                     <thead>
                                         <tr><th colspan="3">Add a new split test</th></tr>
@@ -97,7 +137,7 @@
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit" value="Upload"></td>
+                                            <td><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit-test" value="Upload"/></td>
                                             <td></td>
                                         </tr>
                                     </tbody>
@@ -117,12 +157,6 @@
             </div>
             <div class="col-1"></div>
         </div>
-
-        <!--External scripts-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="./JS/Navigation.js"></script>
 
     </body>
 </html>
