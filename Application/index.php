@@ -8,12 +8,9 @@
         <link rel="stylesheet" type="text/css" href="style.css">
 
         <title>Design application</title>
-        
+
         <!--PHP Scripts-->
-        <?php
-            include "insertImages.php";
-            include "viewResults.php";
-        ?>
+
     </head>
     <body>
 
@@ -48,16 +45,17 @@
             <div class="col-10" id="content">
                 <div class="row" id="titleBar"><span id="titleSpan"><h2 id="title">Home</h2></span></div>
 
-                <!--Main content, dynamic visibility-->
+                <!--Main page content, dynamic visibility-->
                 <div class="row shadow2" id="content1">
 
-                    <!--Index page (default view)-->
-                    
-                    
+                    <!--Index page (default view)
+                        ---Add code here---
+                    -->
+
                     <!--Design choice/Split-test (answer test)-->
                     <div class="col-12 splittestContent addedMargin">
                         <div class="row">
-                            <div class="col-5 imageContainer shadow2"><img src="Imagetest/img1.PNG" alt="Design1" id="img1"/></div>
+                            <div class="col-5 imageContainer shadow2"><img src="viewData.php" alt="Design1" id="img1"/></div>
                             <div class="col-2"></div>
                             <div class="col-5 imageContainer shadow2"><img src="Imagetest/img2.PNG" alt="Design2" id="img2"/></div>
                         </div>
@@ -65,13 +63,18 @@
 
                     <!--Imageform (add new tests)-->
                     <div class="col-12 formContent addedMargin">
-                        <div class="col-6 shadow5" id="formDiv">
+                        <div class="col-10 shadow5" id="formDiv">
                             <form method="POST" action="insertImages.php" enctype="multipart/form-data" class="sendForm">
                                 <table>
                                     <thead>
                                         <tr><th colspan="3">Add a new split test</th></tr>
                                     </thead>
                                     <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th><input type="text" name="testName" placeholder="Name of Test"></th>
+                                            <th></th>
+                                        </tr>
                                         <tr>
                                             <td><img id="output_image1" class="previewImage"/></td>
                                             <td></td>

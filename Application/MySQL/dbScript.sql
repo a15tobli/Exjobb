@@ -8,9 +8,15 @@ image longblob,
 caption varchar(100)
 )engine=innodb;
 
-CREATE TABLE Test(
-ID int AUTO_INCREMENT PRIMARY KEY,
-caption varchar(50)
+CREATE TABLE SplitTest(
+testID int AUTO_INCREMENT PRIMARY KEY,
+testName varchar(15) NOT NULL,
+imgID1 int NOT NULL,
+imgID2 int NOT NULL,
+FOREIGN KEY (imgID1) REFERENCES ImageEntry(ID),
+FOREIGN KEY (imgID2) REFERENCES ImageEntry(ID)
 )engine=innodb;
 
-Insert INTO Test (caption) Values ("This is a test row.");
+INSERT INTO ImageEntry(caption) VALUES ("Testing an entry.");
+DELETE FROM ImageEntry WHERE ID=1;
+SELECT * From ImageEntry;
