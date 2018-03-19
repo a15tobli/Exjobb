@@ -21,7 +21,7 @@
         <?php 
         //Add test, move to separate php-file
         if(isset($_POST['submit-test'])){
-            include_once "insertImages.php";
+            include_once "PHP/insertImages.php";
             Insert::submitForm();
         }
         ?>
@@ -93,7 +93,7 @@
                     <!--Imageform (add new tests)-->
                     <div class="col-12 formContent addedMargin">
                         <div class="col-10 shadow5" id="formDiv">
-                            <form method="POST" action="index.php" enctype="multipart/form-data" class="sendForm">
+                            <form method="POST" action="" enctype="multipart/form-data" class="sendForm">
                                 <table>
                                     <thead>
                                         <tr><th colspan="3">Add a new split test</th></tr>

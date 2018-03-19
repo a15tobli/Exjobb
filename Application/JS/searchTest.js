@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#searchBtn").click(function(){
         $.ajax({
             type: 'POST',
-            url: "searchTest.php",
+            url: "./PHP/searchTest.php",
             cache: false,
             data: {
                 value: $("#searchData").val()
