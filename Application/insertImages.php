@@ -1,7 +1,6 @@
 <?php
 class Insert{
 
-
     //Read image and return correct data to store into DB
     function readImage($tmpimage){
         $fp = fopen($tmpimage, 'r');
