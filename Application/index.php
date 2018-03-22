@@ -6,11 +6,12 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!--External scripts-->
+        <script src="./JS/jquery-3.3.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="./JS/jquery-3.3.1.js"></script>
         <script src="./JS/navigation.js"></script>
         <script src="./JS/searchTest.js"></script>
+        <script src="./JS/insertTest.js"></script>
 
         <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -18,14 +19,6 @@
 
     </head>
     <body>
-        <?php 
-        //Add test, move to separate php-file
-        if(isset($_POST['submit-test'])){
-            include_once "PHP/insertImages.php";
-            Insert::submitForm();
-        }
-        ?>
-
         <!--Navigation menu-->
         <nav class="navbar navbar-toggleable-md navbar-dark">
             <button class="navbar-toggler btn btn-basic" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation" id="hamburgerBtn">
@@ -93,7 +86,7 @@
                     <!--Imageform (add new tests)-->
                     <div class="col-12 formContent addedMargin">
                         <div class="col-10 shadow5" id="formDiv">
-                            <form method="POST" action="" enctype="multipart/form-data" class="sendForm">
+                            <form enctype="multipart/form-data" method="POST" id="addTestForm" class="sendForm">
                                 <table>
                                     <thead>
                                         <tr><th colspan="3">Add a new split test</th></tr>
@@ -101,7 +94,7 @@
                                     <tbody>
                                         <tr>
                                             <th></th>
-                                            <th><input type="text" name="testName" placeholder="Name of Test"></th>
+                                            <th><input type="text" name="testName" id="testName" placeholder="Name of Test"></th>
                                             <th></th>
                                         </tr>
                                         <tr>

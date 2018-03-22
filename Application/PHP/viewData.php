@@ -27,7 +27,7 @@ class Retrieve{
 
     //Returns ID of inserted test
     function getTestID($testName){
-        include "MySQLcon.php";
+        require "MySQLcon.php";
         $fetchQuery = $PDO->prepare("SELECT testID FROM SplitTest WHERE testName='$testName'");
         $fetchQuery->execute();
         $row = $fetchQuery->fetch();
@@ -36,7 +36,4 @@ class Retrieve{
     }
 
 }
-//Testing code
-//$retrieve = new Retrieve;
-//$retrieve->getImage(1);
 ?>
