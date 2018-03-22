@@ -9,7 +9,6 @@ class Insert{
 
         //If test name already exist in database
         if(!$insertQuery->execute()){
-            echo "Error while adding test: \n";
             return false;
         }
         return true;

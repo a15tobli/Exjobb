@@ -2,15 +2,19 @@
 require "insertData.php";
 require "viewData.php";
 
-//Form data retrieved from AJAX
+//Form data retrieved from Ajax
     $testName = $_POST['testName'];
     $img1blob = $_FILES['image1']['tmp_name'];
     $img2blob = $_FILES['image2']['tmp_name'];
     $caption1 = $_POST['caption1'];
     $caption2 = $_POST['caption2'];
 
+    //Boolean for checking valid database submit
+    $insertSuccess = false;
+
 //Handle form data from test inserts
 if(isset($testName) && ($testName !== "")){
+    
     //Check if both images are set
     if (isset($img1blob) && ($img1blob !== "") && isset($img2blob) && ($img2blob !== "")){
         
@@ -24,19 +28,29 @@ if(isset($testName) && ($testName !== "")){
 
             //Submit data
             Insert::submitForm($testID, $img1, $caption1, $img2, $caption2);
-            echo "Test was added! \n Name: ".$testName."\n ID: ".$testID;
+            $returnString = "Test was added! \n Name: ".$testName."\n ID: ".$testID;
+            
+            $insertSuccess = true;
         }
         else{
-            echo "A test with that name already exists!";
+            $returnString = "A test with that name already exists!";
         }
         
     }
     else{
-        echo "Both images must be attached!";
+        $returnString = "Both images must be attached!";
     }
+    
 }
 else{
-    echo "No test name is selected!";
+    $returnString =  "No test name is selected!";
 }
+
+//Return data to Ajax
+$returnList = array(
+    "output" => $returnString,
+    "success" => $insertSuccess
+);
+echo json_encode($returnList);
 
 ?>

@@ -11,10 +11,16 @@ $(document).ready(function(){
             data: formData,
             contentType: false,
             processData: false,
+            dataType: 'json',
             success: function(data){
-                alert(data);
-                console.log(data[1]);
-                //$("#addTestForm")[0].reset();
+                alert(data['output']);
+
+                //Reset form if submit was successful
+                if(data['success'] == true){
+                    $("#addTestForm")[0].reset();
+                    $("#output_image1").removeAttr('src');
+                    $("#output_image2").removeAttr('src');
+                }
             },
             error: function(){
                 console.log("Error while sending AJAX data");
