@@ -68,7 +68,7 @@
                                 <div class="input-group">
                                     <input placeholder="Enter test name" id="searchData" name="searchField" autocomplete="off"/>
                                     <span class="input-group-btn">
-                                        <input class="btn btn-primary" id="searchBtn" type="submit" name="searchTests" value="Search"/>
+                                        <input class="btn btn-success" id="searchBtn" type="submit" name="searchTests" value="Search"/>
                                     </span>                     
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <tbody>
                                         <tr>
                                             <th></th>
-                                            <th><input type="text" name="testName" id="testName" placeholder="Name of Test"></th>
+                                            <th><input type="text" name="testName" id="testName" placeholder="Name of Test" maxlength="25"></th>
                                             <th></th>
                                         </tr>
                                         <tr>
@@ -113,14 +113,12 @@
                                             <th>Caption</th>
                                         </tr>
                                         <tr>
-                                            <td><textarea name="caption1" rows="10" cols="30"></textarea></td>
+                                            <td><textarea name="caption1" rows="5" cols="30"></textarea></td>
                                             <td></td>
-                                            <td><textarea name="caption2" rows="10" cols="30"></textarea></td>
+                                            <td><textarea name="caption2" rows="5" cols="30"></textarea></td>
                                         </tr>
                                         <tr>
-                                            <td></td>
-                                            <td><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit-test" value="Upload"/></td>
-                                            <td></td>
+                                            <td colspan="3"><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit-test" value="Upload"/></td>
                                         </tr>
                                     </tbody>
 

@@ -73,6 +73,10 @@ h2{
 
 /* --- View tests --- */
 .splittestContent{display: none;}
+#searchBtn{background:  #FF4081;}
+.input-group{
+  justify-content: center;
+}
 
 /* Containers for images */
 .imageContainer{
@@ -85,6 +89,8 @@ h2{
 }
 #img1, #img2{
     max-width: 400px;
+    max-height: 400px;
+    padding: 10px;
 }
 
 /*Add images*/
@@ -121,7 +127,7 @@ h2{
     background: #FF4081;
     color: white;
     z-index: 3;
-    bottom: 20px;
+    margin-bottom: 20px;
 }
 .addedMargin{
     margin-top: 50px;
