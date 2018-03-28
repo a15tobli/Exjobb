@@ -1,7 +1,9 @@
 <?php
 class Retrieve{
     function getImage($testID){
-        require "MySQLcon.php";
+        //require "MySQLcon.php";
+        require "PostgreSQLcon.php";
+
         $outputArray = array();
 
         //Select correct images based in testID

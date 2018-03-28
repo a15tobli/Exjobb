@@ -3,7 +3,9 @@ class Insert{
 
     //Create a new test
     function insertTest($testName){
-        require "MySQLcon.php";
+        //require "MySQLcon.php";
+        require "PostgreSQLcon.php";
+        
         $sql = "INSERT INTO SplitTest(testName) VALUES ('$testName')";
         $insertQuery = $PDO->prepare($sql);
 
@@ -26,8 +28,9 @@ class Insert{
     
     //Query for inserting images into database
     function insertImage($tmpimg, $tmpcaption, $tmpID){
-        require "MySQLcon.php";
-
+        //require "MySQLcon.php";
+        require "PostgreSQLcon.php";
+        
         $sql = "INSERT INTO ImageEntry(image, caption, testID) VALUES ('$tmpimg', '$tmpcaption', '$tmpID')";
         $insertQuery = $PDO->prepare($sql);
 
