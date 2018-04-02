@@ -34,7 +34,10 @@ class Retrieve{
         $fetchQuery = $PDO->prepare("SELECT testID FROM SplitTest WHERE testName='$testName'");
         $fetchQuery->execute();
         $row = $fetchQuery->fetch();
-        $ID = $row['testID'];
+        
+        //$ID = $row['testID'];
+        $ID = $row['testid'];
+        
         return $ID;
     }
 

@@ -5,7 +5,7 @@ class Insert{
     function insertTest($testName){
         //require "MySQLcon.php";
         require "PostgreSQLcon.php";
-        
+
         $sql = "INSERT INTO SplitTest(testName) VALUES ('$testName')";
         $insertQuery = $PDO->prepare($sql);
 
@@ -16,21 +16,32 @@ class Insert{
         return true;
     }
 
-     //Read image and return correct data to store into DB
+    //Read image and return correct data to store into DB
     function convertImage($tmpimage){
+        //require "PostgreSQLcon.php";
+
         $fp = fopen($tmpimage, 'r');
         $data = fread($fp, filesize($tmpimage));
-        $data = addslashes($data);
+        
+        /*Selection for which active DB
+        if(!$pgsqlCon){
+            //MySQL
+            $file = addslashes($data);
+        }else{*/
+            //Postgres
+            $file  = pg_escape_bytea($data);
+        //}
+
         fclose($fp);
 
-        return $data;
+        return $file;
     }
-    
+
     //Query for inserting images into database
     function insertImage($tmpimg, $tmpcaption, $tmpID){
         //require "MySQLcon.php";
         require "PostgreSQLcon.php";
-        
+
         $query = "INSERT INTO ImageEntry(image, caption, testID) VALUES ('$tmpimg', '$tmpcaption', '$tmpID')";
         $insertQuery = $PDO->prepare($query);
 
