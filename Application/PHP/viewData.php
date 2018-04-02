@@ -29,7 +29,8 @@ class Retrieve{
 
     //Returns ID of inserted test
     function getTestID($testName){
-        require "MySQLcon.php";
+        //require "MySQLcon.php";
+        require "PostgreSQLcon.php";
         $fetchQuery = $PDO->prepare("SELECT testID FROM SplitTest WHERE testName='$testName'");
         $fetchQuery->execute();
         $row = $fetchQuery->fetch();

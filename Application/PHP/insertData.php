@@ -31,8 +31,8 @@ class Insert{
         //require "MySQLcon.php";
         require "PostgreSQLcon.php";
         
-        $sql = "INSERT INTO ImageEntry(image, caption, testID) VALUES ('$tmpimg', '$tmpcaption', '$tmpID')";
-        $insertQuery = $PDO->prepare($sql);
+        $query = "INSERT INTO ImageEntry(image, caption, testID) VALUES ('$tmpimg', '$tmpcaption', '$tmpID')";
+        $insertQuery = $PDO->prepare($query);
 
         if(!$insertQuery->execute()){
             echo ("Error while inserting images!");
