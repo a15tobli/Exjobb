@@ -1,12 +1,11 @@
 <?php
 class Retrieve{
-    function getImage($testID){
-        /*if ($MySQL){
-                require "MySQLcon.php";
+    function getImage($testID, $activeDB){
+        if($activeDB == 'mySQL'){
+            require "MySQLcon.php";
+        }else if($activeDB == 'pgSQL'){
+            require "PostgreSQLcon.php";
         }
-        else{*/
-        require "PostgreSQLcon.php";
-        //}
 
         $outputArray = array();
 
@@ -18,21 +17,20 @@ class Retrieve{
         while($row = $fetchQuery->fetch()){
             $img = $row['image'];
 
-            /*if($mySQL){
-            $image = imagecreatefromstring($img);
-            }*/
-
             //Get content of image blob and encode it to png
             ob_start();
-            /*if($mySQL){
+
+            //Different file management for DB's
+            if($activeDB == 'mySQL'){
+                $image = imagecreatefromstring($img);
                 imagepng($image);
-            }
-            else{*/
+            }else if($activeDB == 'pgSQL'){
                 fpassthru($img);
-            //}
+            }
+
             $data = ob_get_contents();
             ob_end_clean();
-            $newData = "data:image/png;base64, " . base64_encode($data);
+            $newData = "data:image/png;base64, " . base64_encode($data);           
 
             array_push($outputArray, $newData);
         }
@@ -40,18 +38,24 @@ class Retrieve{
     }
 
     //Returns ID of inserted test
-    function getTestID($testName){
-        //require "MySQLcon.php";
-        require "PostgreSQLcon.php";
+    function getTestID($testName, $activeDB){
+        if($activeDB == 'mySQL'){
+            require "MySQLcon.php";
+        }else if($activeDB == 'pgSQL'){
+            require "PostgreSQLcon.php";
+        }
+
         $fetchQuery = $PDO->prepare("SELECT testID FROM SplitTest WHERE testName='$testName'");
         $fetchQuery->execute();
         $row = $fetchQuery->fetch();
 
-        //if($pgsqlCon){
-        $ID =$row['testid'];
-        /*}else{
-            $ID = $row['testID'];            
-        }*/
+        //Postgres requires purely small chars
+        if($activeDB == 'mySQL'){
+            $ID =$row['testID'];
+        }else if($activeDB == 'pgSQL'){
+            $ID = $row['testid'];            
+        }
+        
         return $ID;
     }
 }

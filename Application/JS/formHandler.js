@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    //Add function that determines DB
+    var DBtype = 'mySQL';
+
+
     //Search form for finding tests
     $("#searchBtn").click(function(){
         $.ajax({
@@ -6,7 +10,8 @@ $(document).ready(function(){
             url: "./PHP/searchTest.php",
             cache: false,
             data: {
-                value: $("#searchData").val()
+                value: $("#searchData").val(),
+                activeConnection: DBtype
             },
             success: function(data){
                 //Returns images based on search result
@@ -16,8 +21,8 @@ $(document).ready(function(){
                 img2.src = data[1];
             },
             dataType: "json",
-            error: function(){
-                console.log("Error");
+            error: function(exception){
+                console.log(exception.responseText);
             }
         });
     });
@@ -26,6 +31,8 @@ $(document).ready(function(){
     $("#addTestForm").submit(function (e){
         e.preventDefault();
         var formData = new FormData(this);
+        //Add connection type
+        formData.append('DBcon', DBtype);
 
         $.ajax({
             type: 'POST',
@@ -44,8 +51,8 @@ $(document).ready(function(){
                     $("#output_image2").removeAttr('src');
                 }
             },
-            error: function(){
-                console.log("Error while sending AJAX data");
+            error: function(exception){
+                console.log(exception.responseText);
             }
         });
     });
@@ -53,16 +60,16 @@ $(document).ready(function(){
 
 //Preview image when inserting tests
 function preview_image(event, id) {
-        var reader = new FileReader();
-        reader.onload = function()
-        {
-            if(id==1){
-                var output = document.getElementById('output_image1');
-            }
-            else{
-                var output = document.getElementById('output_image2');
-            }
-            output.src = reader.result;
+    var reader = new FileReader();
+    reader.onload = function()
+    {
+        if(id==1){
+            var output = document.getElementById('output_image1');
         }
-        reader.readAsDataURL(event.target.files[0]);
+        else{
+            var output = document.getElementById('output_image2');
+        }
+        output.src = reader.result;
     }
+    reader.readAsDataURL(event.target.files[0]);
+}
