@@ -38,6 +38,10 @@
                     <li class="nav-item">
                         <a class="nav-link" id="resultLink" href="#" onclick="setContent('ViewResult');">View results</a>
                     </li>
+                    <!--Database toggle-->
+                     <li class="nav-item">
+                        <a class="nav-link" id="toggleDB" href="#">Switch DB</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -138,6 +142,6 @@
             </div>
             <div class="col-1"></div>
         </div>
-
+        <footer id="pageFooter">Database: MySQL</footer>
     </body>
 </html>

@@ -2,6 +2,20 @@ $(document).ready(function(){
     //Add function that determines DB
     var DBtype = 'mySQL';
 
+    $("#toggleDB").click(function(){
+        var DBname;
+        //Toggle active connection
+        if(DBtype == 'mySQL'){
+            DBtype = 'pgSQL';
+            DBname = "PostgreSQL";
+        }else{
+            DBtype = 'mySQL';
+            DBname = "MySQL";
+        }
+        alert("Database changed to " + DBname + "!");
+        document.getElementById("pageFooter").innerHTML = "Database: " + DBname;
+    });
+
 
     //Search form for finding tests
     $("#searchBtn").click(function(){
