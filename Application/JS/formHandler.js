@@ -12,8 +12,8 @@ $(document).ready(function(){
                 //Returns images based on search result
                 var img1 = document.getElementById("img1");
                 var img2 = document.getElementById("img2");
-                img1.src = "data:image/png;base64, " + data[0];
-                img2.src = "data:image/png;base64, " + data[1];
+                img1.src = data[0];
+                img2.src = data[1];
             },
             dataType: "json",
             error: function(){

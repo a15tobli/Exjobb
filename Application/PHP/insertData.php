@@ -18,7 +18,6 @@ class Insert{
 
     //Read image and return correct data to store into DB
     function convertImage($tmpimage){
-        //require "PostgreSQLcon.php";
 
         $fp = fopen($tmpimage, 'r');
         $data = fread($fp, filesize($tmpimage));

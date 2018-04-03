@@ -1,8 +1,12 @@
 <?php
 class Retrieve{
     function getImage($testID){
-        //require "MySQLcon.php";
+        /*if ($MySQL){
+                require "MySQLcon.php";
+        }
+        else{*/
         require "PostgreSQLcon.php";
+        //}
 
         $outputArray = array();
 
@@ -13,15 +17,23 @@ class Retrieve{
         //Fetches results from database
         while($row = $fetchQuery->fetch()){
             $img = $row['image'];
+
+            /*if($mySQL){
             $image = imagecreatefromstring($img);
+            }*/
 
             //Get content of image blob and encode it to png
             ob_start();
-            imagepng($image);
+            /*if($mySQL){
+                imagepng($image);
+            }
+            else{*/
+                fpassthru($img);
+            //}
             $data = ob_get_contents();
             ob_end_clean();
-            $newData = base64_encode($data);
-            
+            $newData = "data:image/png;base64, " . base64_encode($data);
+
             array_push($outputArray, $newData);
         }
         echo json_encode($outputArray);
@@ -34,12 +46,14 @@ class Retrieve{
         $fetchQuery = $PDO->prepare("SELECT testID FROM SplitTest WHERE testName='$testName'");
         $fetchQuery->execute();
         $row = $fetchQuery->fetch();
-        
-        //$ID = $row['testID'];
-        $ID = $row['testid'];
-        
+
+        //if($pgsqlCon){
+        $ID =$row['testid'];
+        /*}else{
+            $ID = $row['testID'];            
+        }*/
         return $ID;
     }
-
 }
+
 ?>
