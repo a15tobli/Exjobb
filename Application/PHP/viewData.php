@@ -1,7 +1,9 @@
 <?php
 class Retrieve{
     function getImage($testID){
-        require "MySQLcon.php";
+        //require "MySQLcon.php";
+        require "PostgreSQLcon.php";
+
         $outputArray = array();
 
         //Select correct images based in testID
@@ -27,11 +29,15 @@ class Retrieve{
 
     //Returns ID of inserted test
     function getTestID($testName){
-        require "MySQLcon.php";
+        //require "MySQLcon.php";
+        require "PostgreSQLcon.php";
         $fetchQuery = $PDO->prepare("SELECT testID FROM SplitTest WHERE testName='$testName'");
         $fetchQuery->execute();
         $row = $fetchQuery->fetch();
-        $ID = $row['testID'];
+        
+        //$ID = $row['testID'];
+        $ID = $row['testid'];
+        
         return $ID;
     }
 
