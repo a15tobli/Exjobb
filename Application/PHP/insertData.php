@@ -2,9 +2,12 @@
 class Insert{
 
     //Create a new test
-    function insertTest($testName){
-        //require "MySQLcon.php";
-        require "PostgreSQLcon.php";
+    function insertTest($testName, $activeDB){
+        if($activeDB == 'mySQL'){
+            require "MySQLcon.php";
+        }else if($activeDB == 'pgSQL'){
+            require "PostgreSQLcon.php";
+        }
 
         $sql = "INSERT INTO SplitTest(testName) VALUES ('$testName')";
         $insertQuery = $PDO->prepare($sql);
@@ -17,20 +20,17 @@ class Insert{
     }
 
     //Read image and return correct data to store into DB
-    function convertImage($tmpimage){
-        //require "PostgreSQLcon.php";
+    function convertImage($tmpimage, $activeDB){
 
         $fp = fopen($tmpimage, 'r');
         $data = fread($fp, filesize($tmpimage));
-        
-        /*Selection for which active DB
-        if(!$pgsqlCon){
-            //MySQL
+
+        //Different file handling for db's
+        if($activeDB == 'mySQL'){
             $file = addslashes($data);
-        }else{*/
-            //Postgres
+        }else if ($activeDB == 'pgSQL'){
             $file  = pg_escape_bytea($data);
-        //}
+        }
 
         fclose($fp);
 
@@ -38,9 +38,12 @@ class Insert{
     }
 
     //Query for inserting images into database
-    function insertImage($tmpimg, $tmpcaption, $tmpID){
-        //require "MySQLcon.php";
-        require "PostgreSQLcon.php";
+    function insertImage($tmpimg, $tmpcaption, $tmpID, $activeDB){
+        if($activeDB == 'mySQL'){
+            require "MySQLcon.php";
+        }else if($activeDB == 'pgSQL'){
+            require "PostgreSQLcon.php";
+        }
 
         $query = "INSERT INTO ImageEntry(image, caption, testID) VALUES ('$tmpimg', '$tmpcaption', '$tmpID')";
         $insertQuery = $PDO->prepare($query);
@@ -51,9 +54,9 @@ class Insert{
     }
 
     //Adds images and captions linked to a split-test to the database
-    function submitForm($testID, $img1, $caption1, $img2, $caption2){
-        self::insertImage($img1, $caption1, $testID);
-        self::insertImage($img2, $caption2, $testID);
+    function submitForm($testID, $img1, $caption1, $img2, $caption2, $activeDB){
+        self::insertImage($img1, $caption1, $testID, $activeDB);
+        self::insertImage($img2, $caption2, $testID, $activeDB);
     }
 }
 ?>
