@@ -19,6 +19,9 @@ $(document).ready(function(){
 
     //Search form for finding tests
     $("#searchBtn").click(function(){
+        //Benchmarking variable
+        var startTime = (new Date).getTime();
+        
         $.ajax({
             type: 'POST',
             url: "./PHP/searchTest.php",
@@ -29,10 +32,12 @@ $(document).ready(function(){
             },
             success: function(data){
                 //Returns images based on search result
-                var img1 = document.getElementById("img1");
-                var img2 = document.getElementById("img2");
-                img1.src = data[0];
-                img2.src = data[1];
+                $("#img1").attr("src", data[0]);
+                $("#img2").attr("src", data[1]);
+                
+                //Benchmarking result
+                var endTime = (new Date).getTime() - startTime;
+                console.log(endTime + "ms");
             },
             dataType: "json",
             error: function(exception){
