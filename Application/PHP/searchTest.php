@@ -6,5 +6,6 @@ $activeDB = $_POST['activeConnection'];
 $testID = Retrieve::getTestID($_POST['value'], $activeDB);
 
 //Return data based on testID
-Retrieve::getImage($testID, $activeDB);
+Retrieve::getImage($testID, $activeDB); 
+
 ?>

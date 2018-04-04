@@ -3,7 +3,7 @@ class Retrieve{
     function getImage($testID, $activeDB){
         if($activeDB == 'mySQL'){
             require "MySQLcon.php";
-        }else if($activeDB == 'pgSQL'){
+        }else{
             require "PostgreSQLcon.php";
         }
 
@@ -41,7 +41,7 @@ class Retrieve{
     function getTestID($testName, $activeDB){
         if($activeDB == 'mySQL'){
             require "MySQLcon.php";
-        }else if($activeDB == 'pgSQL'){
+        }else{
             require "PostgreSQLcon.php";
         }
 
@@ -49,7 +49,7 @@ class Retrieve{
         $fetchQuery->execute();
         $row = $fetchQuery->fetch();
 
-        //Postgres requires purely small chars
+        //Postgres requires small chars
         if($activeDB == 'mySQL'){
             $ID =$row['testID'];
         }else if($activeDB == 'pgSQL'){
