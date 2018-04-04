@@ -19,7 +19,7 @@ $(document).ready(function(){
 
     //Search form for finding tests
     $("#searchBtn").click(function(){
-        
+
         //Benchmarking variable
         var startTime = (new Date).getTime();
 
@@ -45,6 +45,7 @@ $(document).ready(function(){
                 console.log(exception.responseText);
             }
         });
+        $("#searchData").val("");
     });
 
     //Send submitted form data with AJAX
