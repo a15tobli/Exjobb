@@ -41,7 +41,7 @@ class Insert{
     function insertImage($tmpimg, $tmpcaption, $tmpID, $activeDB){
         if($activeDB == 'mySQL'){
             require "MySQLcon.php";
-        }else if($activeDB == 'pgSQL'){
+        }else{
             require "PostgreSQLcon.php";
         }
 
