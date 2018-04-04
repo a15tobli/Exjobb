@@ -19,9 +19,10 @@ $(document).ready(function(){
 
     //Search form for finding tests
     $("#searchBtn").click(function(){
+        
         //Benchmarking variable
         var startTime = (new Date).getTime();
-        
+
         $.ajax({
             type: 'POST',
             url: "./PHP/searchTest.php",
@@ -34,10 +35,10 @@ $(document).ready(function(){
                 //Returns images based on search result
                 $("#img1").attr("src", data[0]);
                 $("#img2").attr("src", data[1]);
-                
+
                 //Benchmarking result
-                var endTime = (new Date).getTime() - startTime;
-                console.log(endTime + "ms");
+                var timeDiff = (new Date).getTime() - startTime;
+                sendBenchmark(timeDiff, DBtype);
             },
             dataType: "json",
             error: function(exception){
@@ -91,4 +92,23 @@ function preview_image(event, id) {
         output.src = reader.result;
     }
     reader.readAsDataURL(event.target.files[0]);
+}
+
+//Send benchmark timers to DB
+function sendBenchmark(responseTime, DBtype){
+    $.ajax({
+        type: 'POST',
+        url: "./PHP/writeResponsetime.php",
+        cache: false,
+        data: {
+            benchmark: responseTime,
+            activeConnection: DBtype
+        },
+        success: function(data){
+            console.log("Timer saved: " + data + "ms");
+        },
+        error: function(exception){
+            console.log(exception.responseText);
+        }
+    });
 }
