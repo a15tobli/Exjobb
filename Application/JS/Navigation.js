@@ -2,6 +2,7 @@
 function setContent(clickedLink) {
     //Hide contents
     $("a").removeClass("active");
+    $(".indexContent").hide();
     $(".splittestContent").hide();
     $(".formContent").hide();
 
@@ -9,6 +10,7 @@ function setContent(clickedLink) {
     switch(clickedLink){
         case "Home":
             $("#homeLink").addClass("active");
+            $(".indexContent").show();
             document.getElementById("title").innerHTML="Home";
             break;
         case "AnswerTest":

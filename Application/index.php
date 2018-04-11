@@ -57,10 +57,11 @@
                 <div class="row shadow2" id="content1">
 
                     <!--Index page (default view)-->
-                    <div class="col-12 addedMargin" >
+                    <div class="col-12 addedMargin indexContent" >
                         <p id="indexText">
                             This is an application used for measuring web designs with A/B-testing. 
-                            The links in the left menu is used to navigate through the site. <br/>
+                            The links in the left menu is used to navigate through the site.</p><br/>
+                        
                         <table id="indexTable">
                             <tr>
                                 <th>Answer Test</th><td>View a split-test (A/B-test).</td>
