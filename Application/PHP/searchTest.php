@@ -1,5 +1,5 @@
 <?php
-include_once "viewData.php";
+require "viewData.php";
 $activeDB = $_POST['activeConnection'];
 
 //Get testID by searched name on page

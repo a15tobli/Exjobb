@@ -1,10 +1,11 @@
 //Displays content based on link clicked
 function setContent(clickedLink) {
+    //Hide contents
     $("a").removeClass("active");
-
     $(".splittestContent").hide();
     $(".formContent").hide();
 
+    //Display correct content based on active link
     switch(clickedLink){
         case "Home":
             $("#homeLink").addClass("active");
