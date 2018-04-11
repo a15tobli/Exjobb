@@ -39,7 +39,7 @@
                         <a class="nav-link" id="resultLink" href="#" onclick="setContent('ViewResult');">View results</a>
                     </li>
                     <!--Database toggle-->
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" id="toggleDB" href="#">Switch DB</a>
                     </li>
                 </ul>
@@ -56,90 +56,105 @@
                 <!--Main page content, dynamic visibility-->
                 <div class="row shadow2" id="content1">
 
+                    <!--Index page (default view)-->
+                    <div class="col-12 addedMargin" >
+                        <p id="indexText">
+                            This is an application used for measuring web designs with A/B-testing. 
+                            The links in the left menu is used to navigate through the site. <br/>
+                        <table id="indexTable">
+                            <tr>
+                                <th>Answer Test</th><td>View a split-test (A/B-test).</td>
+                            </tr>
+                            <tr>
+                                <th>Add Test</th><td>Make a new entry to a database.</td>
+                            </tr>
+                             <tr>
+                                <th>View Results</th><td>View the statistics from the split-tests.</td>
+                            </tr>
+                             <tr>
+                                <th>Switch DB</th><td>Toggle the active database. (Displayed at the bottom)</td>
+                            </tr>
+                        </table>
+                </div>
 
-                    <!--Index page (default view)
----Add index here---
--->
-
-
-                    <!--Design choice/Split-test (answer test)-->
-                    <div class="col-12 splittestContent addedMargin">
-                        <!-- Search form -->
-                        <div class="row">
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <div class="input-group">
-                                    <input placeholder="Enter test name" id="searchData" name="searchField" autocomplete="off"/>
-                                    <span class="input-group-btn">
-                                        <input class="btn btn-success" id="searchBtn" type="submit" name="searchTests" value="Search"/>
-                                    </span>                     
-                                </div>
+                <!--Design choice/Split-test (answer test)-->
+                <div class="col-12 splittestContent addedMargin">
+                    <!-- Search form -->
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input placeholder="Enter test name" id="searchData" name="searchField" autocomplete="off"/>
+                                <span class="input-group-btn">
+                                    <input class="btn btn-success" id="searchBtn" type="submit" name="searchTests" value="Search"/>
+                                </span>                     
                             </div>
-                            <div class="col-4"></div>
                         </div>
-                        <!--Test output-->
-                        <div class="row">
-                            <div class="col-5 imageContainer shadow2"><img alt="Design1" id="img1"/></div>
-                            <div class="col-2"><p id="testing"></p></div>
-                            <div class="col-5 imageContainer shadow2"><img src="viewData.php" alt="Design2" id="img2"/></div>
-                        </div>
+                        <div class="col-4"></div>
                     </div>
-
-
-                    <!--Imageform (add new tests)-->
-                    <div class="col-12 formContent addedMargin">
-                        <div class="col-10 shadow5" id="formDiv">
-                            <form enctype="multipart/form-data" method="POST" id="addTestForm" class="sendForm">
-                                <table>
-                                    <thead>
-                                        <tr><th colspan="3">Add a new split test</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <th><input type="text" name="testName" id="testName" placeholder="Name of Test" maxlength="25"></th>
-                                            <th></th>
-                                        </tr>
-                                        <tr>
-                                            <td><img id="output_image1" class="previewImage"/></td>
-                                            <td></td>
-                                            <td><img id="output_image2" class="previewImage"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="btn formBtn" type="file" accept="image/*" name="image1" onchange="preview_image(event, 1);"></td>
-                                            <td></td>
-                                            <td><input class="btn formBtn" type="file" accept="image/*" name="image2" onchange="preview_image(event, 2);"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Caption</th>
-                                            <th></th>
-                                            <th>Caption</th>
-                                        </tr>
-                                        <tr>
-                                            <td><textarea name="caption1" rows="5" cols="30"></textarea></td>
-                                            <td></td>
-                                            <td><textarea name="caption2" rows="5" cols="30"></textarea></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit-test" value="Upload"/></td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </form>
-                        </div>
+                    <!--Test output-->
+                    <div class="row">
+                        <div class="col-5 imageContainer shadow2"><img alt="Design1" id="img1"/></div>
+                        <div class="col-2"><p id="testing"></p></div>
+                        <div class="col-5 imageContainer shadow2"><img src="viewData.php" alt="Design2" id="img2"/></div>
                     </div>
-
-                    <!--Add more content here-->
-
                 </div>
 
-                <!--Supplementing content-->
-                <div class="row shadow1" id="content2">
+
+                <!--Imageform (add new tests)-->
+                <div class="col-12 formContent addedMargin">
+                    <div class="col-10 shadow5" id="formDiv">
+                        <form enctype="multipart/form-data" method="POST" id="addTestForm" class="sendForm">
+                            <table>
+                                <thead>
+                                    <tr><th colspan="3">Add a new split test</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th></th>
+                                        <th><input type="text" name="testName" id="testName" placeholder="Name of Test" maxlength="25"></th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td><img id="output_image1" class="previewImage"/></td>
+                                        <td></td>
+                                        <td><img id="output_image2" class="previewImage"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="btn formBtn" type="file" accept="image/*" name="image1" onchange="preview_image(event, 1);"></td>
+                                        <td></td>
+                                        <td><input class="btn formBtn" type="file" accept="image/*" name="image2" onchange="preview_image(event, 2);"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Caption</th>
+                                        <th></th>
+                                        <th>Caption</th>
+                                    </tr>
+                                    <tr>
+                                        <td><textarea name="caption1" rows="5" cols="30"></textarea></td>
+                                        <td></td>
+                                        <td><textarea name="caption2" rows="5" cols="30"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit-test" value="Upload"/></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </form>
+                    </div>
                 </div>
+
+                <!--Add more content here-->
+
             </div>
-            <div class="col-1"></div>
+
+            <!--Supplementing content-->
+            <div class="row shadow1" id="content2">
+            </div>
         </div>
-        <footer id="pageFooter">Database: MySQL</footer>
+        <div class="col-1"></div>
+        </div>
+    <footer id="pageFooter">Database: MySQL</footer>
     </body>
 </html>

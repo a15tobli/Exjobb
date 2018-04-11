@@ -19,8 +19,7 @@ body{
     transition: all 0.2s ease-out;
     top: 50px;
 }
-
-li a{color: white;}
+li a{ color: white;}
 
 /* --- Page title --- */
 #titleBar{
@@ -44,6 +43,7 @@ h2{
 }
 
 /* --- Page content --- */
+
 /* Container for page content */
 #content{
     margin: auto;
@@ -71,12 +71,21 @@ h2{
     border-bottom-right-radius: 4px;
 }
 
-/* --- View tests --- */
-.splittestContent{display: none;}
-#searchBtn{background:  #FF4081;}
-.input-group{
-  justify-content: center;
+/* --- Index -- */
+#indexText{
+    text-align: center;
+    color: #eee;
 }
+#indexTable{
+    color: white;
+    margin: auto;
+}
+#indexTable td{ padding: 5px;}
+
+/* --- View tests --- */
+.splittestContent{ display: none;}
+#searchBtn{ background: #FF4081;}
+.input-group{ justify-content: center;}
 
 /* Containers for images */
 .imageContainer{
@@ -94,7 +103,7 @@ h2{
 }
 
 /*Add images*/
-.formContent{display: none;}
+.formContent{ display: none;}
 #formDiv{
     background: #388E3C;
     height: 100%;
@@ -111,9 +120,8 @@ h2{
     text-align: center;
     display: table;
 }
-#formDiv td{
-    width: 33%;
-}
+#formDiv td{ width: 33%;}
+
 .previewImage
 {
     background: white;
@@ -129,27 +137,17 @@ h2{
     z-index: 3;
     margin-bottom: 20px;
 }
-.addedMargin{
-    margin-top: 50px;
-}
-
-.shadow1{
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-.shadow2{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-.shadow3{
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-.shadow4{
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-.shadow5{
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
 #pageFooter{
     color: white;
     text-align: center;
 }
+
+/* --- General styling classes --- */
+.addedMargin{ margin-top: 50px;}
+
+.shadow1{ box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+.shadow2{ box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+.shadow3{ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
+.shadow4{ box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+.shadow5{ box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
+
