@@ -31,9 +31,9 @@ class Insert{
         }else if ($activeDB == 'pgSQL'){
             $file  = pg_escape_bytea($data);
         }
-        
+
         fclose($fp);
-        
+
         return $file;
     }
 

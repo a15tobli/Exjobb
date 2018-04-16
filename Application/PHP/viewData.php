@@ -55,7 +55,7 @@ class Retrieve{
         }else if($activeDB == 'pgSQL'){
             $ID = $row['testid'];            
         }
-        
+
         return $ID;
     }
 }
