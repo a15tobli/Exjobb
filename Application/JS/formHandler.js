@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //Hide image captions
     $(".captionRow").hide();
-    
+
     //Add function that determines DB
     var DBtype = 'mySQL';
 
@@ -41,10 +41,11 @@ $(document).ready(function(){
                     //Returns images based on search result
                     $("#img1").attr("src", data[0]);
                     $("#cap1").html(data[1]);
-                    //document.getElementById("cap1").innerHTML = data[1];
                     $("#img2").attr("src", data[2]);
                     $("#cap2").html(data[3]);
-                    
+
+                    //Control visibility of displayed content
+                    //alignHeight();
                     $(".captionRow").show();
 
                     //Benchmarking result
@@ -62,6 +63,8 @@ $(document).ready(function(){
         });
         $("#searchData").val("");
     });
+
+
 
     //Send submitted form data with AJAX
     $("#addTestForm").submit(function (e){
@@ -128,3 +131,27 @@ function sendBenchmark(responseTime, DBtype){
         }
     });
 }
+
+//Align height of contents in found tests
+//Not entirely functional for dynamic heights..
+/*function alignHeight(){
+    var leftImg = $("#img1").height();
+    var rightImg = $("#img2").height();
+    var leftCaption = $("#caption1Container").height();
+    var rightCaption = $("#caption2Container").height();
+
+    //Align image containers
+    if(leftImg > rightImg){
+        $("#img2").height(leftImg);
+    }else{
+        $("#img1").height(rightImg);
+    }
+    //Align caption containers
+    if(leftCaption > rightCaption){
+        console.log("True");
+        $("#caption2Container").height(leftCaption);
+    }else{
+        console.log("False");
+        $("#caption1Container").height(rightCaption);
+    }
+}*/

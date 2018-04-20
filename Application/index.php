@@ -87,7 +87,7 @@
                                 <div class="input-group">
                                     <input placeholder="Enter test name" id="searchData" name="searchField" autocomplete="off"/>
                                     <span class="input-group-btn">
-                                        <input class="btn btn-success pinkBG" id="searchBtn" type="submit" name="searchTests" value="Search"/>
+                                        <input class="btn btn-success" id="searchBtn" type="submit" name="searchTests" value="Search"/>
                                     </span>                     
                                 </div>
                             </div>
@@ -100,12 +100,12 @@
                             <div class="col-5 imageContainer shadow2"><img src="viewData.php" alt="Design B" id="img2"/></div>
                         </div>
                         <div class="row captionRow">
-                            <div class="col-5 whiteBG shadow2 caption">
+                            <div class="col-5 whiteBG shadow2 caption" id="caption1Container">
                                 <p id="cap1"></p>
                                 <button class="btn btn-success designBtn">Design A</button>
                             </div>
                             <div class="col-2"></div>
-                            <div class="col-5 whiteBG shadow2 caption">
+                            <div class="col-5 whiteBG shadow2 caption" id="caption2Container">
                                 <p id="cap2"></p>
                                 <button class="btn btn-success designBtn">Design B</button>
                             </div>
