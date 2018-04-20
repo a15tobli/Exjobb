@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    //Hide image captions
+    $(".captionRow").hide();
+    
     //Add function that determines DB
     var DBtype = 'mySQL';
 
@@ -34,9 +37,15 @@ $(document).ready(function(){
             success: function(data){
                 //If search results were found
                 if (data[0] !== undefined && data[1] !== undefined) {
+
                     //Returns images based on search result
                     $("#img1").attr("src", data[0]);
-                    $("#img2").attr("src", data[1]);
+                    $("#cap1").html(data[1]);
+                    //document.getElementById("cap1").innerHTML = data[1];
+                    $("#img2").attr("src", data[2]);
+                    $("#cap2").html(data[3]);
+                    
+                    $(".captionRow").show();
 
                     //Benchmarking result
                     var timeDiff = (new Date).getTime() - startTime;

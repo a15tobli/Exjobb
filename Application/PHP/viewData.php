@@ -10,12 +10,13 @@ class Retrieve{
         $outputArray = array();
 
         //Select correct images based in testID
-        $fetchQuery = $PDO->prepare('SELECT image FROM ImageEntry, SplitTest WHERE ImageEntry.testID = SplitTest.testID AND ImageEntry.testID = '.$testID);
+        $fetchQuery = $PDO->prepare('SELECT image , caption FROM ImageEntry, SplitTest WHERE ImageEntry.testID = SplitTest.testID AND ImageEntry.testID = '.$testID);
         $fetchQuery->execute();
 
         //Fetches results from database
         while($row = $fetchQuery->fetch()){
             $img = $row['image'];
+            $caption = $row['caption'];
 
             //Get content of image blob and encode it to png
             ob_start();
@@ -33,6 +34,7 @@ class Retrieve{
             $newData = "data:image/png;base64, " . base64_encode($data);           
 
             array_push($outputArray, $newData);
+            array_push($outputArray, $caption);
         }
         echo json_encode($outputArray);
     }
