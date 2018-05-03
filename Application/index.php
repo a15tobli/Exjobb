@@ -143,9 +143,9 @@
                                             <th>Caption</th>
                                         </tr>
                                         <tr>
-                                            <td><textarea name="caption1" rows="5" cols="30"></textarea></td>
+                                            <td><textarea id="caption1" name="caption1" rows="5" cols="30"></textarea></td>
                                             <td></td>
-                                            <td><textarea name="caption2" rows="5" cols="30"></textarea></td>
+                                            <td><textarea name="caption2" id="caption2" rows="5" cols="30"></textarea></td>
                                         </tr>
                                         <tr>
                                             <td colspan="3"><input class="btn bottom shadow3" id="sendBtn" type="submit" name="submit-test" value="Upload"/></td>
