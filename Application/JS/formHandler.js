@@ -4,6 +4,7 @@ $(document).ready(function(){
 
     //Add function that determines DB
     var DBtype = 'mySQL';
+    var activeTestID;
 
     $("#toggleDB").click(function(){
         var DBname;
@@ -19,54 +20,7 @@ $(document).ready(function(){
         document.getElementById("pageFooter").innerHTML = "Database: " + DBname;
     });
 
-
-    //Search form for finding tests
-    $("#searchBtn").click(function(){
-
-        //Benchmarking variable
-        var startTime = (new Date).getTime();
-
-        $.ajax({
-            type: 'POST',
-            url: "./PHP/searchTest.php",
-            cache: false,
-            data: {
-                value: $("#searchData").val(),
-                activeConnection: DBtype
-            },
-            success: function(data){
-                //If search results were found
-                if (data[0] !== undefined && data[1] !== undefined) {
-
-                    //Returns images based on search result
-                    $("#img1").attr("src", data[0]);
-                    $("#cap1").html(data[1]);
-                    $("#img2").attr("src", data[2]);
-                    $("#cap2").html(data[3]);
-
-                    //Control visibility of displayed content
-                    //alignHeight();
-                    $(".captionRow").show();
-
-                    //Benchmarking result
-                    var timeDiff = (new Date).getTime() - startTime;
-                    sendBenchmark(timeDiff, DBtype);
-                }
-                else{
-                    alert("No search results found!");
-                }
-            },
-            dataType: "json",
-            error: function(exception){
-                console.log(exception.responseText);
-            }
-        });
-        $("#searchData").val("");
-    });
-
-
-
-    //Send submitted form data with AJAX
+    //Send submitted form data with AJAX when adding tests
     $("#addTestForm").submit(function (e){
         e.preventDefault();
         var formData = new FormData(this);
@@ -95,7 +49,85 @@ $(document).ready(function(){
             }
         });
     });
+
+
+    //Search form for finding tests
+    $("#searchBtn").click(function(){
+
+        //Benchmarking variable
+        var startTime = (new Date).getTime();
+
+        $.ajax({
+            type: 'POST',
+            url: "./PHP/searchTest.php",
+            cache: false,
+            data: {
+                value: $("#searchData").val(),
+                activeConnection: DBtype
+            },
+            success: function(data){
+                //If search results were found
+                if (data[0] !== undefined && data[1] !== undefined) {
+
+                    //Returns images based on search result
+                    $("#img1").attr("src", data[0]);
+                    $("#cap1").html(data[1]);
+                    $("#img2").attr("src", data[2]);
+                    $("#cap2").html(data[3]);
+
+                    //Save testID to use when sending answers
+                    activeTestID = data[4];
+
+                    //Control visibility of displayed content
+                    $(".captionRow").show();
+
+                    //Benchmarking result
+                    var timeDiff = (new Date).getTime() - startTime;
+                    //sendBenchmark(timeDiff, DBtype);
+                }
+                else{
+                    alert("No search results found!");
+                }
+            },
+            dataType: "json",
+            error: function(exception){
+                console.log(exception.responseText);
+            }
+        });
+        $("#searchData").val("");
+    });
+
+    //Call method for sending A/B-test answers
+    $("#btnA").click(function (){
+        sendAnswer(activeTestID, 'A', DBtype);
+    });
+    $("#btnB").click(function (){
+        sendAnswer(activeTestID, 'B', DBtype);
+    });
+
 });
+
+//Send answers of A/B-testing to database
+function sendAnswer(ID, value, DBtype){
+    console.log("TestID: " + ID + ", Answer: " + value);
+    
+    $.ajax({
+        type: 'POST',
+        url: "./PHP/insertStatistics.php",
+        cache: false,
+        data: {
+            testID: ID,
+            answer: value,
+            activeConnection: DBtype
+        },
+        success: function(data){
+            alert(data);
+        },
+        error: function(exception){
+            console.log(exception.responseText);
+        }
+    });
+}
 
 //Preview image when inserting tests
 function preview_image(event, id) {
@@ -131,27 +163,3 @@ function sendBenchmark(responseTime, DBtype){
         }
     });
 }
-
-//Align height of contents in found tests
-//Not entirely functional for dynamic heights..
-/*function alignHeight(){
-    var leftImg = $("#img1").height();
-    var rightImg = $("#img2").height();
-    var leftCaption = $("#caption1Container").height();
-    var rightCaption = $("#caption2Container").height();
-
-    //Align image containers
-    if(leftImg > rightImg){
-        $("#img2").height(leftImg);
-    }else{
-        $("#img1").height(rightImg);
-    }
-    //Align caption containers
-    if(leftCaption > rightCaption){
-        console.log("True");
-        $("#caption2Container").height(leftCaption);
-    }else{
-        console.log("False");
-        $("#caption1Container").height(rightCaption);
-    }
-}*/

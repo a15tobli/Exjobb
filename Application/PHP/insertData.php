@@ -19,6 +19,7 @@ class Insert{
         return true;
     }
 
+
     //Read image and return correct data to store into DB
     function convertImage($tmpimage, $activeDB){
 
@@ -37,6 +38,7 @@ class Insert{
         return $file;
     }
 
+
     //Query for inserting images into database
     function insertImage($tmpimg, $tmpcaption, $tmpID, $activeDB){
         if($activeDB == 'mySQL'){
@@ -52,6 +54,26 @@ class Insert{
             echo ("Error while inserting images!");
         }
     }
+
+
+    //Insert answers from A/B-tests
+    function insertAnswers($testID, $answer, $activeDB){
+        if($activeDB == 'mySQL'){
+            require "MySQLcon.php";
+        }else if($activeDB == 'pgSQL'){
+            require "PostgreSQLcon.php";
+        }
+
+        $query = "INSERT INTO Statistics(answer, testID) VALUES ('$answer', '$testID')";
+        $insertQuery = $PDO->prepare($query);
+
+        if(!$insertQuery->execute()){
+            echo "Error while inserting statistics!";
+        }else{
+            echo "Answer was successfully inserted!";   
+        }
+    }
+
 
     //Adds images and captions linked to a split-test to the database
     function submitForm($testID, $img1, $caption1, $img2, $caption2, $activeDB){

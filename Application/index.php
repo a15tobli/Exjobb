@@ -102,12 +102,12 @@
                         <div class="row captionRow">
                             <div class="col-5 whiteBG shadow2 caption" id="caption1Container">
                                 <p id="cap1"></p>
-                                <button class="btn btn-success designBtn">Design A</button>
+                                <button id="btnA" class="btn btn-success designBtn">Design A</button>
                             </div>
                             <div class="col-2"></div>
                             <div class="col-5 whiteBG shadow2 caption" id="caption2Container">
                                 <p id="cap2"></p>
-                                <button class="btn btn-success designBtn">Design B</button>
+                                <button id="btnB" class="btn btn-success designBtn">Design B</button>
                             </div>
                         </div>
                     </div>

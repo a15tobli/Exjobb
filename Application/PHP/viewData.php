@@ -33,9 +33,14 @@ class Retrieve{
             ob_end_clean();
             $newData = "data:image/png;base64, " . base64_encode($data);           
 
+            //Push image data into array that will be returned to JS
             array_push($outputArray, $newData);
             array_push($outputArray, $caption);
         }
+        //Also adds testID to use when sending statistics later on
+        array_push($outputArray, $testID);
+
+        //Returns array to AJAX request
         echo json_encode($outputArray);
     }
 
