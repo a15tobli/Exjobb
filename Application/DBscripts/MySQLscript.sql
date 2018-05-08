@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS MySQL_DB;
-CREATE DATABASE MySQL_DB;
+/*DROP DATABASE IF EXISTS MySQL_DB;
+CREATE DATABASE MySQL_DB;*/
 USE MySQL_DB;
 
 CREATE TABLE SplitTest(
@@ -22,6 +22,7 @@ testID int,
 FOREIGN KEY (testID) REFERENCES SplitTest(testID)
 )engine=innodb;
 
+-- View data
 SELECT * FROM SplitTest;
 SELECT * FROM ImageEntry;
 SELECT * FROM Statistics;

@@ -16,7 +16,14 @@ CREATE TABLE ImageEntry(
 	FOREIGN KEY (testID) REFERENCES SplitTest(testID)
 );
 
+CREATE TABLE Statistics(
+	ID SERIAL PRIMARY KEY,
+	answer char,
+	testID int,
+	FOREIGN KEY (testID) REFERENCES SplitTest(testID)
+);
+
 --Display data
 SELECT * FROM ImageEntry;
 SELECT * FROM SplitTest;
-
+SELECT * FROM Statistics;
